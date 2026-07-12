@@ -10,4 +10,8 @@ require("format")
 require("dap_config")
 require("database")
 
-vim.cmd.colorscheme("moonfly")
+require("catppuccin").setup({
+    flavour = "mocha",
+})
+
+vim.cmd.colorscheme("catppuccin")

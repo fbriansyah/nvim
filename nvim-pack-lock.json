@@ -24,6 +24,10 @@
       "rev": "c248713d3530710f67ec804cfbdfcd5b02b19dee",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
+    "nvim": {
+      "rev": "05e8787020dcfdb937bf2ff23855ea2415b4e072",
+      "src": "https://github.com/catppuccin/nvim"
+    },
     "nvim-dap": {
       "rev": "9e848e09a697ee95302a3ef2dd43fd6eb709e570",
       "src": "https://github.com/mfussenegger/nvim-dap"
