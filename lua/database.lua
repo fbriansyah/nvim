@@ -5,13 +5,9 @@ vim.g.db_ui_save_location = vim.fn.stdpath("data") .. "/db_ui"
 
 -- local dev connections, shown in the DB UI sidebar (<leader>Du)
 -- edit host/port/db name to match your setup, or add more with :DBUIAddConnection
-vim.g.dbs = {
-    local_bridge = "postgres://avd:avd@localhost:5432/distribution-development",
-    local_voucher = "postgres://avd:avd@localhost:5432/voucher-development",
-    local_inventory = "postgres://avd:avd@localhost:5432/inventory-development",
-    local_redis = "redis://localhost:6379/0",
-    local_mongo_bridge = "mongodb://avd:avd@localhost:27017/distribution-development",
-}
+-- vim.g.dbs = {
+--     local_redis = "redis://localhost:6379/0",
+-- }
 
 -- for real credentials, don't hardcode them here — reference env vars instead, e.g.:
 -- staging_postgres = "postgres://$DB_USER:$DB_PASSWORD@staging-host:5432/dbname",
