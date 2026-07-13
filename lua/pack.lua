@@ -129,12 +129,3 @@ vim.keymap.set("n", "<leader>nd", require("package-info").delete, { desc = "Dele
 vim.keymap.set("n", "<leader>ni", require("package-info").install, { desc = "Install a new npm package" })
 vim.keymap.set("n", "<leader>np", require("package-info").change_version, { desc = "Change npm package version" })
 
---- kulala (REST client for .http files, test Express endpoints) ---
-require("kulala").setup({
-    default_view = "body",
-})
-
-vim.keymap.set("n", "<leader>rr", "<cmd>lua require('kulala').run()<CR>", { desc = "Run REST request under cursor" })
-vim.keymap.set("n", "<leader>rp", "<cmd>lua require('kulala').jump_prev()<CR>", { desc = "Prev REST request" })
-vim.keymap.set("n", "<leader>rn", "<cmd>lua require('kulala').jump_next()<CR>", { desc = "Next REST request" })
-

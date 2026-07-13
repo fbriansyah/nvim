@@ -9,6 +9,7 @@ require("treesitter")
 require("format")
 require("dap_config")
 require("database")
+require("kulala_config")
 
 require("catppuccin").setup({
     flavour = "mocha",
