@@ -7,6 +7,14 @@ require("mason-tool-installer").setup({
         "eslint-lsp",
         "prettier",
         "js-debug-adapter",
+
+        -- Go
+        "gopls",                     -- language server
+        "delve",                     -- debugger (DAP adapter)
+        "goimports",                 -- formatter (imports + gofmt)
+        "gofumpt",                   -- stricter gofmt
+        "golangci-lint",             -- meta-linter
+        "golangci-lint-langserver",  -- exposes golangci-lint as an LSP
     },
 })
 
@@ -25,6 +33,37 @@ vim.lsp.config("lua_ls", {
         Lua = {
             diagnostics = { globals = { "vim" } },
         },
+    },
+})
+
+vim.lsp.config("gopls", {
+    settings = {
+        gopls = {
+            gofumpt = true, -- match the gofumpt formatter used by conform
+            staticcheck = true,
+            usePlaceholders = true,
+            analyses = {
+                unusedparams = true,
+                nilness = true,
+                unusedwrite = true,
+                useany = true,
+            },
+            hints = {
+                assignVariableTypes = true,
+                compositeLiteralFields = true,
+                constantValues = true,
+                functionTypeParameters = true,
+                parameterNames = true,
+                rangeVariableTypes = true,
+            },
+        },
+    },
+})
+
+-- golangci-lint surfaced as diagnostics (runs on save / open)
+vim.lsp.config("golangci_lint_ls", {
+    init_options = {
+        command = { "golangci-lint", "run", "--output.json.path=stdout", "--show-stats=false" },
     },
 })
 
@@ -73,6 +112,7 @@ vim.lsp.enable({
     "lua_ls",
     "marksman",
     "gopls",
+    "golangci_lint_ls",
     "rust_analyzer",
     "ts_ls",
     "vue_ls",

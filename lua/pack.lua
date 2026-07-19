@@ -18,6 +18,7 @@ vim.pack.add({
     "https://github.com/rcarriga/nvim-dap-ui",
     "https://github.com/nvim-neotest/nvim-nio",
     "https://github.com/theHamsta/nvim-dap-virtual-text",
+    "https://github.com/leoluz/nvim-dap-go", -- delve setup + debug-test-nearest for Go
 
     -- Database client (Postgres / MySQL / SQLite / Redis / MongoDB)
     "https://github.com/tpope/vim-dadbod",

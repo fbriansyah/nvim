@@ -10,6 +10,8 @@ require("conform").setup({
         html = { "prettier" },
         css = { "prettier" },
         markdown = { "prettier" },
+        -- goimports fixes imports first, gofumpt applies stricter gofmt
+        go = { "goimports", "gofumpt" },
     },
     format_on_save = function(bufnr)
         local disable_filetypes = {

@@ -4,6 +4,15 @@ local dapui = require("dapui")
 dapui.setup()
 require("nvim-dap-virtual-text").setup()
 
+-- Go / delve: registers the "delve" adapter and go debug configurations,
+-- and finds the delve binary installed by Mason (on $PATH).
+require("dap-go").setup({
+    delve = {
+        -- keep delve attached so headless mode works on Linux/macOS
+        detached = vim.fn.has("win32") == 0,
+    },
+})
+
 dap.listeners.after.event_initialized["dapui_config"] = function()
     dapui.open()
 end
@@ -62,3 +71,7 @@ vim.keymap.set("n", "<leader>dO", dap.step_out, { desc = "DAP: step out" })
 vim.keymap.set("n", "<leader>dr", dap.repl.toggle, { desc = "DAP: toggle REPL" })
 vim.keymap.set("n", "<leader>dt", dap.terminate, { desc = "DAP: terminate" })
 vim.keymap.set("n", "<leader>du", dapui.toggle, { desc = "DAP: toggle UI" })
+
+-- Go-specific (nvim-dap-go)
+vim.keymap.set("n", "<leader>dgt", function() require("dap-go").debug_test() end, { desc = "DAP Go: debug nearest test" })
+vim.keymap.set("n", "<leader>dgl", function() require("dap-go").debug_last_test() end, { desc = "DAP Go: debug last test" })
