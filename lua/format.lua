@@ -11,10 +11,21 @@ require("conform").setup({
         css = { "prettier" },
         markdown = { "prettier" },
     },
-    format_on_save = {
-        timeout_ms = 1000,
-        lsp_format = "fallback",
-    },
+    format_on_save = function(bufnr)
+        local disable_filetypes = {
+            javascript = true,
+            javascriptreact = true,
+            typescript = true,
+            typescriptreact = true,
+        }
+        if disable_filetypes[vim.bo[bufnr].filetype] then
+            return
+        end
+        return {
+            timeout_ms = 1000,
+            lsp_format = "fallback",
+        }
+    end,
 })
 
 vim.keymap.set({ "n", "v" }, "<leader>f", function()
