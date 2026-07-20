@@ -8,6 +8,9 @@ vim.pack.add({
     "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
     "https://github.com/tpope/vim-fugitive",
 
+    -- AI code suggestion (inline ghost text)
+    "https://github.com/supermaven-inc/supermaven-nvim",
+
     -- Node.js / Express tooling
     "https://github.com/stevearc/conform.nvim",
     "https://github.com/vuki656/package-info.nvim",
