@@ -40,3 +40,13 @@ vim.api.nvim_create_autocmd("TextYankPost", {
         vim.hl.on_yank()
     end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+    desc = "Use 2-space indentation for JS-related files",
+    pattern = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "json", "jsonc" },
+    callback = function()
+        vim.opt_local.tabstop = 2
+        vim.opt_local.softtabstop = 2
+        vim.opt_local.shiftwidth = 2
+    end,
+})
