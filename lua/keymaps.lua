@@ -30,6 +30,14 @@ vim.keymap.set("n", "<leader>re", "<cmd>restart<cr>", { desc = "Restart config :
 
 vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "Save buffer" })
 
+-- create splits
+vim.keymap.set("n", "<leader>sv", "<cmd>vsplit<CR>", { desc = "Split vertical" })
+vim.keymap.set("n", "<leader>sh", "<cmd>split<CR>", { desc = "Split horizontal" })
+
+-- zoom current split into its own tab, and back
+vim.keymap.set("n", "<leader>sz", "<cmd>tab split<CR>", { desc = "Zoom split" })
+vim.keymap.set("n", "<leader>sZ", "<cmd>tabclose<CR>", { desc = "Unzoom split" })
+
 -- move between splits without the <C-w> prefix
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left split" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to below split" })
